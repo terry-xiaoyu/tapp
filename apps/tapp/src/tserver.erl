@@ -5,6 +5,8 @@
 %% API functions
 -export([start_link/0]).
 
+-export([inspect/0]).
+
 %% gen_server callbacks
 -export([init/1,
          handle_call/3,
@@ -27,10 +29,10 @@
 %% @end
 %%--------------------------------------------------------------------
 start_link() ->
-    gen_server:start_link(?MODULE, [], []).
+    gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-inspect(Pid) ->
-    gen_server:call(Pid, inspect, 2000).
+inspect() ->
+    gen_server:call(?MODULE, inspect, 2000).
 
 %%%===================================================================
 %%% gen_server callbacks
