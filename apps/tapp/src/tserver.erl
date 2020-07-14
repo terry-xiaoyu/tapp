@@ -67,7 +67,7 @@ init([]) ->
 %% @end
 %%--------------------------------------------------------------------
 handle_call(inspect, _From, State) ->
-    io:format("[inspect] loopdata of tserver: ~p~n", [State]),
+    io:format("[inspect 1.3] loopdata of tserver: ~p~n", [State]),
     {reply, ok, State};
 handle_call(_Request, _From, State) ->
     Reply = ok,
@@ -121,7 +121,8 @@ terminate(_Reason, _State) ->
 %% @spec code_change(OldVsn, State, Extra) -> {ok, NewState}
 %% @end
 %%--------------------------------------------------------------------
-code_change(_OldVsn, State, _Extra) ->
+code_change(OldVsn, State, Extra) ->
+    io:format("code change, oldv: ~p, state: ~p, extra: ~p~n", [OldVsn, State, Extra]),
     {ok, State}.
 
 %%%===================================================================

@@ -1,6 +1,6 @@
 {application, tapp,
- [{description, "An OTP application 0.1.2"},
-  {vsn, "0.1.2"},
+ [{description, "An OTP application 0.1.3"},
+  {vsn, "0.1.3"},
   {registered, []},
   {mod, {tapp_app, []}},
   {applications,
